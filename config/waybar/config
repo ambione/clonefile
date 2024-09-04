@@ -1,0 +1,97 @@
+// • WAYBAR CONFIG •
+{
+    "layer": "bottom", // Waybar at top layer
+    "position": "bottom", // Waybar at the bottom of your screen
+    "height": 25, // Waybar height
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["hyprland/workspaces","network"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "memory", "backlight", "battery", "battery#bat2", "cpu", "temperature", "tray"],
+   //  Modules configuration
+     "hyprland/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "format": "{name}{icon}",
+         "format-icons": {
+             "1": " ",
+             "2": " ",
+             "3": " ",
+             "4": " ",
+             "5": " ",
+             "6": " ",
+             "7": " ",
+             "8": " ",
+             "9": " ",
+             "urgent": " ",
+             "focused": " ",
+             "default": " ",
+         }
+     },
+    "mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "tray": {
+        // "icon-size": 12,
+        "spacing": 16
+    },
+    "clock": {
+        "tooltip-format": "{:%d.%m.%Y | %H:%M:%S}",
+        "format-alt": "{:%d.%m • %H:%M }"
+    },
+    "cpu": {
+        "format": "CPU·{usage}%"
+    },
+    "memory": {
+        "format": "RAM·{}%"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "BRI·{percent}% {icon}",
+        // "format-icons": ["•", "•"]
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "TEMP·{temperatureC}°C {icon}",
+        // "format-icons": ["", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "BAT·{capacity}% {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        // "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "network": {
+         //"interface": "wlp2s0", // (Optional) To force the use of this interface
+         "format-wifi": " • {essid} ({signalStrength}%) w ",
+         "format-ethernet": " • {ifname}: {ipaddr}/{cidr} i ",
+         //"format-disconnected": "Disconnected ⚠",
+    },
+    "pulseaudio": {
+        //"scroll-step": 1,
+        "format": "{icon}VOL·{volume}%",
+        "format-bluetooth": "{icon}BLU·{volume}%",
+        "format-muted": "M",
+        //"format-icons": {
+            "headphones": "+",
+            "handsfree": "+",
+            "headset": "+",
+            "phone": "+",
+            "portable": "+",
+            "car": "+",
+            "default": [" ", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+    }
